@@ -15,9 +15,14 @@ Ce projet est une base de données de films simple construite avec Symfony. Il p
 * Composer
 * Une base de données MySQL
 
-## Installation
+## Technologies utilisées
 
-1. Cloner le dépôt :
+Symfony - Le framework web utilisé
 
-```bash
-git clone https://github.com/Zowx/my_movies.git
+Doctrine - Le ORM utilisé pour les interactions avec la base de données
+
+Bootstrap - Le framework CSS utilisé pour le style
+
+API Platform - Le framework API utilisé pour construire l'API
+
+Twig - Le moteur de template utilisé pour le rendu des vues
