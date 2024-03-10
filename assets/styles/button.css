@@ -3,3 +3,7 @@
     border-color: black;
     color: white;
 }
+
+.btn-black:hover {
+    text-decoration: none;
+}

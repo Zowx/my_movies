@@ -1,13 +1,42 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Film{% endblock %}
+{% block title %}Mes Films{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_row(form.name) }}
-        {{ form_row(form.dateRelease) }}
-        {{ form_row(form.see) }}
-        {{ form_row(form.password.first) }}
-        {{ form_row(form.password.second) }}
-    {{ form_end(form) }}
+    <div {{ stimulus_controller('movie') }}>
+        <input
+                type="search"
+                class="form-control mt-3 mb-3 search-input"
+                id="search"
+                placeholder="Rechercher..."
+                data-url="{{ path('app_movie_search') }}"
+                {{ stimulus_action('movie', 'searchMovie', 'input') }}
+        >
+
+        <div class="movies-list"></div>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-black mt-3" data-toggle="modal" data-target="#exampleModalScrollable">
+            Créer un film
+        </button>
+        {% include "movie/_new_movie_modal.html.twig" %}
+
+        <div class="container mt-5">
+            <div class="row">
+                {% for movie in movies|sort((a, b) => a.dateRelease <=> b.dateRelease) %}
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <a href="{{ path('app_movie_details', {id: movie.id}) }}">
+                            <div class="card h-100 border-0 shadow text-dark bg-light p-2">
+                                <img src="{{ getMovieImageUrl(movie) }}" class="card-img-top img-fluid rounded" alt="{{ movie.name }}"/>
+                                <div class="card-body p-3">
+                                    <h5 class="card-title text-center text-truncate">{{ movie.name }}</h5>
+                                    <p class="card-text text-muted text-truncate">{{ movie.synopsis }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}

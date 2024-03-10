@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Détails du film{% endblock %}
+
+{% block body %}
+    <div class="container mt-5">
+        <div class="d-flex justify-content-between">
+            <div></div>
+            <div>
+                <h1>{{ movie.name }}</h1>
+            </div>
+            <div class="d-flex row">
+                <button type="button" class="btn btn-black ml-auto" id="edit-button" title="Modifier le film" data-toggle="modal" data-target="#exampleModalScrollable">Modifier</button>
+            </div>
+        </div>
+        {% include "movie/_edit_movie_modal.html.twig" %}
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <img src="{{ getMovieImageUrl(movie) }}" class="img-fluid rounded" title="Affiche du film {{ movie.name }}" alt="Affiche du film {{ movie.name }}"/>
+            </div>
+            <div class="col-md-8">
+                <a href="{{ path('app_movie_see', {'id': movie.id}) }}" class="text-dark float-right" title="Marquer le film comme vu">
+                    {% if movie.see %}
+                        <i class="fa-solid fa-eye text-danger"></i>
+                    {% else %}
+                        <i class="fa-solid fa-eye"></i>
+                    {% endif %}
+                </a>
+                <p>Date de sortie : {{ movie.dateRelease|date('d/m/Y') }}</p>
+                <p>Type : {{ movie.type }}</p>
+                <p>Réalisateur : {{ movie.realisator }}</p>
+                <p>Synopsis :</p>
+                <p class="w-85">{{ movie.synopsis }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

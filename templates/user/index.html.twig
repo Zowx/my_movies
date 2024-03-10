@@ -1,20 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Profile{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
+    <div class="container py-5">
+        <h1 class="text-center mb-5">Modifier mon profil</h1>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code>/Users/enzomorin/my_movies/src/Controller/UserController.php</code></li>
-        <li>Your template at <code>/Users/enzomorin/my_movies/templates/user/index.html.twig</code></li>
-    </ul>
-</div>
+        <div class="row">
+            <div class="col-md-6">
+                <h2 class="mb-4">Informations personnelles</h2>
+                <form class="mx-auto" method="post">
+                    {{ form_start(form_personal_info) }}
+                    <div class="form-group">
+                        {{ form_row(form_personal_info.email, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form_personal_info.firstName, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form_personal_info.lastName, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <button type="submit" class="btn btn-black mx-auto">Modifier</button>
+                    {{ form_end(form_personal_info) }}
+                </form>
+            </div>
+            <div class="col-md-6">
+                <h2 class="mb-4">Modifier le mot de passe</h2>
+                <form class="mx-auto" method="post">
+                    {{ form_start(form_password) }}
+                    <div class="form-group">
+                        {{ form_row(form_password.password.first, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form_row(form_password.password.second, {'attr': {'class': 'form-control'}}) }}
+                    </div>
+                    <button type="submit" class="btn btn-black mx-auto">Modifier le mot de passe</button>
+                    {{ form_end(form_password) }}
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

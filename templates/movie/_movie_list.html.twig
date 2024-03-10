@@ -1,0 +1,12 @@
+{% for movie in movies.results %}
+        <div class="d-flex mb-3">
+                <img class="img-fluid rounded align-self-start mr-3" src="{{ getImageUrl(movie.poster_path) }}" width="100">
+                <div class="align-self-end">
+                        <h5>{{ movie.title }}</h5>
+                        <p>{{ movie.release_date }}</p>
+                        <p>{{ movie.overview|slice(0, 120) }}...</p>
+                        <a class="btn btn-black" href="{{ path('app_movie_save', {id: movie.id, 'see': 'false'}) }}">A voir</a>
+                        <a class="btn btn-black" href="{{ path('app_movie_save', {id: movie.id, 'see': 'true'}) }}">Vus</a>
+                </div>
+        </div>
+{% endfor %}

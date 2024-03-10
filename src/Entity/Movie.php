@@ -39,6 +39,21 @@ class Movie
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $file = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $posterPath = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?int $idMovieApi = null;
+
+    public function __construct()
+    {
+        $this->see = false;
+        $this->createdAt = new \DateTime();
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -139,4 +154,41 @@ class Movie
 
         return $this;
     }
+
+    public function getFile(): ?string
+    {
+        return $this->file;
+    }
+
+    public function setFile(string $file): static
+    {
+        $this->file = $file;
+
+        return $this;
+    }
+
+    public function getPosterPath(): ?string
+    {
+        return $this->posterPath;
+    }
+
+    public function setPosterPath(?string $posterPath): static
+    {
+        $this->posterPath = $posterPath;
+
+        return $this;
+    }
+
+    public function getIdMovieApi(): ?int
+    {
+        return $this->idMovieApi;
+    }
+
+    public function setIdMovieApi(?int $idMovieApi): static
+    {
+        $this->idMovieApi = $idMovieApi;
+
+        return $this;
+    }
+
 }

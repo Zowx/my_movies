@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mes films vus{% endblock %}
+
+{% block body %}
+    <div {{ stimulus_controller('movie') }}>
+        <input
+                type="search"
+                class="form-control mt-3 mb-3 search-input"
+                id="search"
+                placeholder="Rechercher..."
+                data-url="{{ path('app_movie_search') }}"
+                {{ stimulus_action('movie', 'searchMovie', 'input') }}
+        >
+
+        <div class="movies-list"></div>
+
+        <h1>Mes films vus</h1>
+
+        {% if movies|length == 0 %}
+            <p>Vous n'avez aucun film vu pour le moment.</p>
+        {% else %}
+            <div class="row">
+                {% for movie in movies|sort((a, b) => a.dateRelease <=> b.dateRelease) %}
+                    <div class="col-md-3 col-sm-6 mb-4">
+                        <a href="{{ path('app_movie_details', {id: movie.id}) }}">
+                            <div class="card h-100 border-0 shadow text-dark bg-light p-2">
+                                <img src="{{ getMovieImageUrl(movie) }}" class="card-img-top img-fluid rounded" alt="{{ movie.name }}"/>
+                                <div class="card-body p-3">
+                                    <h5 class="card-title text-center text-truncate">{{ movie.name }}</h5>
+                                    <p class="card-text text-muted text-truncate">{{ movie.synopsis }}</p>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <a href="{{ path('app_movie') }}" class="text-dark">Retour à la liste des films</a>
+    </div>
+{% endblock %}

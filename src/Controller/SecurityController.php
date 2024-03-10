@@ -52,7 +52,7 @@ class SecurityController extends AbstractController
             $password = $passwordEncoder->hashPassword($user, $user->getPassword());
             $user->setPassword($password);
             $user->setCreatedAt(new \DateTime());
-
+            $user->setRoles(["ROLE_USER"]);
             $this->entityManager->persist($user);
             $this->entityManager->flush();
 

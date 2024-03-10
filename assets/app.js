@@ -7,5 +7,10 @@
 import './styles/app.css';
 import './styles/button.css';
 import './styles/padding.css';
+import './styles/size.css';
 
-console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');
+import './stimulus';
+
+const $ = require('jquery');
+
+global.$ = global.jQuery = $;

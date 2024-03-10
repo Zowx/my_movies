@@ -1,0 +1,34 @@
+.form-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.search-input {
+    width: 70rem;
+}
+
+.login-box {
+    background-color: #f2f2f2;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.vh-80 {
+    min-height: 80vh;
+}
+
+.vh-100 {
+    min-height: 100vh;
+}
+
+
+.aze{
+    display: flex;
+    justify-content: space-around;
+}

@@ -10,12 +10,12 @@
             </div>
             <div class="modal-body">
                 {{ form_start(form) }}
-                {{ form_row(form.name) }}
-                {{ form_row(form.dateRelease) }}
-                {{ form_row(form.type) }}
-                {{ form_row(form.synopsis) }}
-                {{ form_row(form.realisator) }}
-                {{ form_row(form.file) }}
+                    {{ form_row(form.name) }}
+                    {{ form_row(form.realisator) }}
+                    {{ form_row(form.dateRelease) }}
+                    {{ form_row(form.type) }}
+                    {{ form_row(form.synopsis) }}
+                    <a href="{{ path('app_movie_delete', {'id': movie.id}) }}" class="btn btn-danger float-right"> Supprimer </a>
                 {{ form_end(form) }}
             </div>
         </div>

@@ -1,23 +1,21 @@
-<nav class="navbar navbar-expand-md bg-light vh-100 flex-fill flex-grow-1">
+<nav class="navbar navbar-expand-md bg-light flex-column vh-100">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <div class="navbar-nav">
-                <div class="d-flex flex-column flex-shrink-0 p-3 bg-light responsive-div">
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link text-dark" href="{{ path('app_movie') }}">Mes Films</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('app_movie_watch') }}" class="nav-link link-dark text-dark">Film à voir</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('app_movie_watched') }}" class="nav-link link-dark text-dark">Film vus</a>
-                        </li>
-                    </ul>
-                </div>
+        <div class="collapse navbar-collapse flex-column" id="navbarNav">
+            <div class="d-flex flex-column flex-shrink-0 p-3 bg-light">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link text-dark" href="{{ path('app_movie') }}">Mes Films</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark text-dark" href="{{ path('app_movie_watch') }}">Films à voir</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link link-dark text-dark" href="{{ path('app_movie_watched') }}">Films vus</a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

@@ -3,11 +3,21 @@
 {% block title %}Inscription{% endblock %}
 
 {% block body %}
-    {{ form_start(form) }}
-        {{ form_row(form.firstName) }}
-        {{ form_row(form.lastName) }}
-        {{ form_row(form.email) }}
-        {{ form_row(form.password.first) }}
-        {{ form_row(form.password.second) }}
-    {{ form_end(form) }}
+    <div class="container">
+        <div class="row justify-content-center align-items-center vh-80">
+            <div class="col-md-6 login-box">
+                <div class="form-center">
+                    <h1>Inscription</h1>
+                    {{ form_start(form) }}
+                    {{ form_row(form.firstName) }}
+                    {{ form_row(form.lastName) }}
+                    {{ form_row(form.email) }}
+                    {{ form_row(form.password.first) }}
+                    {{ form_row(form.password.second) }}
+                    {{ form_row(form.Envoyer) }}
+                    {{ form_end(form) }}
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}
