@@ -20,4 +20,4 @@ Ce projet est une base de données de films simple construite avec Symfony. Il p
 1. Cloner le dépôt :
 
 ```bash
-git clone https://github.com/votrenomdutilisateur/base-de-donnees-films.git
+git clone https://github.com/Zowx/my_movies.git
